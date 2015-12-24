@@ -37,7 +37,7 @@ module Tools
     # Concatenates the required keys together into a pretty string
     # @return [String] All required keys separated by commas.
     def required_keys_string
-      @required_keys_string.map { |key| %('#{key}') }.join(', ')
+      @required_keys.map { |key| %('#{key}') }.join(', ')
     end
   end
 end
