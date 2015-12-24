@@ -2,8 +2,6 @@ require 'json'
 
 module Tools
   class Creator
-    BASE_CONFIGURATION_DIRECTORY = 'config'
-
     attr_reader :files, :announce, :source, :output, :piece_size, :privacy
 
     def initialize(manifest:, announce:, source:, output:, piece_size:, privacy:)
