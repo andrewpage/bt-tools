@@ -1,8 +1,8 @@
-# Tools::Cd
+# Tools.CD
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tools/cd`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/andrewpage/tools.cd.svg?branch=master)](https://travis-ci.org/andrewpage/tools.cd) [![Code Climate](https://codeclimate.com/github/andrewpage/tools.cd/badges/gpa.svg)](https://codeclimate.com/github/andrewpage/tools.cd) [![Test Coverage](https://codeclimate.com/github/andrewpage/tools.cd/badges/coverage.svg)](https://codeclimate.com/github/andrewpage/tools.cd/coverage)
 
-TODO: Delete this and the text above, and describe your gem
+Collection of tools for managing a seedbox.
 
 ## Installation
 
@@ -38,4 +38,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
