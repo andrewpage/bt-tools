@@ -1,3 +1,4 @@
+require 'pry'
 require 'json'
 
 module Tools
@@ -33,7 +34,11 @@ module Tools
     def transcode(config_path)
       config = read_config(config_path, :transcode)
 
-      formats = config['formats']
+      # Format keys and their manifest files
+      format_configuration = config['formats']
+
+      # Format objects
+      formats = Tools::Formats::Format.create_from_configuration(format_configuration)
     end
 
     private

@@ -1,3 +1,4 @@
+require 'pry'
 require 'active_support/core_ext/string'
 
 module Tools
@@ -11,6 +12,7 @@ module Tools
       # @param formats [Hash] K: format name, V: path to manifest file
       # @return [Array<Format>] Returns an array of Format objects
       def self.create_from_configuration(formats)
+        # binding.pry
         initialized_formats = []
 
         formats.each do |format_str, manifest_path|
