@@ -11,8 +11,8 @@ module Tools
       # Get a Hash from the config JSON
       config = read_config(config_path, :create)
 
-      # Get path for the manifest file
-      manifest = relative_config_path(config['manifest'], config_path)
+      # Get path for the manifest (secondary) file
+      manifest = relative_config_path(config_path, config['manifest'])
 
       # Initialize .torrent Creator
       creator = Actions::Create.new(
@@ -69,13 +69,13 @@ module Tools
 
     # Generate a path for the secondary config file that is relative
     # to the primary config file
-    # @param main [String] Path to the primary configuration file.
     # @param config [String] Path to the secondary configuration file.
+    # @param main [String] Path to the primary configuration file.
     # @return [String] Path to the secondary configuration file, relative to the directory of the primary configuration file.
-    def relative_config_path(main, config)
-      config_directory = File.dirname(main)
+    def relative_config_path(primary, secondary)
+      config_directory = File.dirname(primary)
 
-      File.join(config_directory, config)
+      File.join(config_directory, secondary)
     end
   end
 end
