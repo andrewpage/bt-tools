@@ -17,6 +17,7 @@ class ToolsDriver
     )
 
     parse
+    validate!
   end
 
   # Perform actions based on command & options
@@ -37,7 +38,10 @@ class ToolsDriver
 
     # Set the command if it's present
     options.command = cmd.to_sym
+  end
 
+  # Ensure we have valid data
+  def validate!
     raise "Invalid command. Available commands: #{AVAILABLE_COMMANDS.join(', ')}." unless valid_command?
   end
 
