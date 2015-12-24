@@ -63,7 +63,3 @@ module Tools
     end
   end
 end
-
-# Dir['/Users/andrewpage/Documents/transcode/*'].each do |dir|
-#   Transcoder.new(dir).execute
-# end
