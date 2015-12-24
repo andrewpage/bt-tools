@@ -51,7 +51,7 @@ describe Tools::API do
   end
 
   describe '#read_config' do
-    configuration_fixture_path = fixture_path('configuration.json')
+    configuration_fixture_path = fixture_path('config/configuration.json')
 
     it 'should read and parse JSON with an action' do
       result = @klass.send(:read_config, configuration_fixture_path, :transcode)

@@ -1,0 +1,19 @@
+{
+  "create": {
+    "manifest": "create.json",
+    "source": "spec/fixtures/data",
+    "output": "spec/fixtures/torrents",
+    "announceURL": "https://tracker.andrewpage.me:34000/myTrackerURL/announce",
+    "private": true,
+    "pieceSize": 18
+  },
+  "transcode": {
+    "formats": {
+      "320": "transcode-320.json",
+      "V0": "transcode-V0.json",
+      "V2": "transcode-V2.json"
+    },
+    "source": "spec/fixtures/data",
+    "output": "spec/fixtures/transcodes"
+  }
+}
