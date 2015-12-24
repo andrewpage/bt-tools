@@ -4,7 +4,7 @@
     "source": "/media/sdaa1/pageandrew/private/rtorrent/data",
     "output": "/media/sdaa1/pageandrew/private/rtorrent/torrents",
     "announceURL": "http://tracker.what.cd:34000/TEST/announce",
-    "private": "true",
+    "private": true,
     "pieceSize": 18
   },
   "transcode": {

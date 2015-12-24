@@ -29,12 +29,18 @@ module Tools
       def execute
         create_output_directory
 
-        files.each do |path|
-          torrent_name = "#{File.basename(path)}.torrent"
+        files.each do |file_name|
+          # Full relative path to the source file
+          infile_path = source_path(file_name)
+          # File name of output file
+          outfile_name = torrent_name(file_name)
+          # Full relative path to output file
+          outfile_path = output_path(outfile_name)
 
-          if File.exist?(path)
-            make_torrent(torrent_name, path)
-            puts "√ #{torrent_name}"
+          if can_create_torrent?(infile_path)
+            make_torrent(infile_path, outfile_path)
+
+            puts "√ #{outfile_name}"
           end
         end
       end
@@ -56,20 +62,47 @@ module Tools
         FileUtils.mkdir_p(output) unless File.exists?(output)
       end
 
+      # Generates a path to the source file within the source directory
+      # @param file_name [String] Name of the source file, relative to the source directory.
+      # @return [String] Path to the source file, relative to the calling location.
+      def source_path(file_name)
+        File.join(source, file_name)
+      end
+
+      # Generates a path to the output file within the output directory
+      # @param file_name [String] Name of the output file, relative to the output directory.
+      # @return [String] Path to the output file, relative to the calling location.
+      def output_path(file_name)
+        File.join(output, file_name)
+      end
+
+      # Generates the name for the finished .torrent file
+      # @param file_name [String] Name of the source file
+      # @return [String] .torrent name
+      def torrent_name(file_name)
+        basename = File.basename(file_name)
+
+        [basename, 'torrent'].join('.')
+      end
+
+      # @param infile_path [String] Path to the source file.
+      # @return [Boolean] Can we create the torrent for this source file?
+      def can_create_torrent?(infile_path)
+        File.exist?(infile_path)
+      end
+
       # Create the .torrent file
       # @param name [String] Name of the completed .torrent file.
       # @param source [String] Path to the source directory for this torrent.
       # @return [String] Result of the command execution.
-      def mktorrent(name, source)
-        outfile = File.join(output, name)
-
+      def make_torrent(infile_path, outfile_path)
         cmd = Array.new
         cmd << %(mktorrent)
-        cmd << %(-l #{piece_size})
+        cmd << %(-l #{piece_size}) # piece_size is an exponent of two
         cmd << %(-p) if privacy
         cmd << %(-a #{announce})
-        cmd << %("#{source}")
-        cmd << %(-o "#{outfile}")
+        cmd << %("#{infile_path}")
+        cmd << %(-o "#{outfile_path}")
         cmd = cmd.join(' ')
 
         execute_command(cmd)
