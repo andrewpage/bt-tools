@@ -10,7 +10,7 @@ class ToolsDriver
   attr_reader :options
 
   # ToolsDriver will parse all command line options
-  # @param args Array of arguments, typically from ARGV.
+  # @param args [Array] Arguments, typically from ARGV.
   def initialize(args)
     @args = args
 
@@ -45,7 +45,7 @@ class ToolsDriver
 
   # Ensure we have valid data
   def validate!
-    raise "Invalid command. Available commands: #{AVAILABLE_COMMANDS.join(', ')}." unless valid_command?
+    raise Tools::InvalidCommandException.new(command, AVAILABLE_COMMANDS) unless valid_command?
   end
 
   def command

@@ -1,6 +1,8 @@
 require_relative 'creator'
 require_relative 'transcoder'
 
+require_relative 'exceptions'
+
 require 'json'
 
 module Tools
@@ -8,10 +10,8 @@ module Tools
   TRANSCODE_REQUIRED_KEYS = %i(formats source output)
 
   # Create .torrent files for each entry in the config manifest
-  #
-  # @param config_path Path to the primary configuration file.
+  # @param config_path [String] Path to the primary configuration file.
   def self.create(config_path)
-    # TODO: Ensure that the manifest path is relative to the configuration file. File.expand_path?
     config = read_config(config_path, :create)
 
     # Get path for the manifest file
@@ -33,17 +33,26 @@ module Tools
 
   # Transcode all FLAC files to the desired formats
   #
-  # @param config_path Path to the primary configuration file.
+  # @param config_path [String] Path to the primary configuration file.
   def self.transcode(config_path)
     config = read_config(config_path, :transcode)
   end
 
   private
 
+  # Validates that all required keys are present in the configuration
+  # @param config [Hash] Configuration hash to validate.
+  # @param required_keys [Array] Keys that must be present in the configuration.
+  def self.validate_configuration(config, required_keys)
+    required_keys.each do |key|
+
+    end
+  end
+
   # Read configuration and parse JSON
   #
-  # @param path Path of the configuration file to parse.
-  # @param action Select inner hash corresponding to this key.
+  # @param path [String] Path of the configuration file to parse.
+  # @param action [String] Select inner hash corresponding to this key.
   def self.read_config(path, action = nil)
     contents = File.read(path)
     json = JSON.parse(contents)
@@ -54,8 +63,8 @@ module Tools
   # Generate a path for the secondary config file that is relative
   # to the primary config file
   #
-  # @param main The primary configuration file
-  # @param config The secondary configuration file
+  # @param main [String] Path to the primary configuration file.
+  # @param config [String] Path to the secondary configuration file.
   def self.config_path(main, config)
     config_directory = File.dirname(main)
 
