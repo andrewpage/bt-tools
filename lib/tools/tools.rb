@@ -6,10 +6,12 @@ module Tools
   TRANSCODE_REQUIRED_KEYS = %i(formats source output)
 
   # Create all torrent files
-  def self.create(config)
+  def self.create(config_path)
+    puts "Create: #{config_path}"
   end
 
   # Transcode all FLAC files
-  def self.transcode(config)
+  def self.transcode(config_path)
+    puts "Transcode: #{config_path}"
   end
 end

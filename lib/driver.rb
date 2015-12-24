@@ -1,3 +1,5 @@
+require_relative 'tools/tools'
+
 require 'ostruct'
 require 'optionparser'
 
@@ -22,7 +24,7 @@ class ToolsDriver
 
   # Perform actions based on command & options
   def execute
-    puts options.command
+    Tools.public_send(command, options.configuration_path)
   end
 
   private
