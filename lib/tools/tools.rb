@@ -11,6 +11,19 @@ module Tools
   def self.create(config_path)
     # TODO: Ensure that the manifest path is relative to the working directory. File.expand_path?
     config = read_config(config_path, :create)
+
+    # Initialize .torrent Creator
+    creator = Creator.new(
+      manifest: config['manifest'],
+      announce: config['announceURL'],
+      source: config['source'],
+      output: config['output'],
+      piece_size: config['pieceSize'],
+      privacy: config['private']
+    )
+
+    # Create torrents
+    creator.execute
   end
 
   # Transcode all FLAC files
