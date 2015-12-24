@@ -4,7 +4,8 @@ require 'fileutils'
 module Tools
   module Actions
     class Create
-      include Execution
+      include Support::Execution
+      include Support::Manifest
 
       attr_reader :files, :announce, :source, :output, :piece_size, :privacy
 
@@ -46,16 +47,6 @@ module Tools
       end
 
       private
-
-      # Extract list of files to process from manifest JSON
-      # @param manifest [String] Path to JSON configuration file that lists all files to be proceesed.
-      # @return [Array] File paths that were contained within the manifest file.
-      def extract_files(manifest)
-        contents = File.read(manifest)
-        json = JSON.parse(contents)
-
-        json['files']
-      end
 
       # Creates .torrent output directory if it does not yet exist.
       def create_output_directory

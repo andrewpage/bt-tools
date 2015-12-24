@@ -3,7 +3,7 @@ require 'fileutils'
 module Tools
   module Actions
     class Transcode
-      include Execution
+      include Support::Execution
 
       def initialize(directory, formats = %w(V0 V2 320))
         @directory = directory

@@ -1,9 +1,10 @@
 require 'tools/api'
 require 'tools/cli'
 
-require 'tools/exceptions'
+require 'tools/support/exceptions'
+require 'tools/support/execution'
+require 'tools/support/manifest'
 
-require 'tools/actions/execution'
 require 'tools/actions/create'
 require 'tools/actions/transcode'
 

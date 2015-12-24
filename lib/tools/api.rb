@@ -32,6 +32,8 @@ module Tools
     # @param config_path [String] Path to the primary configuration file.
     def transcode(config_path)
       config = read_config(config_path, :transcode)
+
+      formats = config['formats']
     end
 
     private

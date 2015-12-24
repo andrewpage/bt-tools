@@ -21,7 +21,7 @@ describe Tools::API do
 
   describe '#transcode' do
     it 'should read configuration' do
-      expect(@klass).to receive(:read_config).with('config_path', :transcode)
+      expect(@klass).to receive(:read_config).with('config_path', :transcode).and_return({})
 
       @klass.transcode('config_path')
     end
