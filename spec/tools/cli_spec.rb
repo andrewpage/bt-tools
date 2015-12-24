@@ -10,7 +10,7 @@ describe Tools::CLI do
     it 'should initialize a CLI object' do
       expect_any_instance_of(Tools::CLI).to receive(:set_default_options)
       expect_any_instance_of(Tools::CLI).to receive(:parse)
-      expect_any_instance_of(Tools::CLI).to receive(:validate!)
+      expect_any_instance_of(Tools::CLI).to receive(:validate)
 
       Tools::CLI.new(@args)
     end

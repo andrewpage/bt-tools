@@ -3,6 +3,8 @@ require 'fileutils'
 module Tools
   module Actions
     class Transcode
+      include Tools::Execution
+
       def initialize(directory, formats = %w(V0 V2 320))
         @directory = directory
         @formats = formats
@@ -34,24 +36,21 @@ module Tools
       end
 
       def transcode(file, bitrate)
-        command = Array.new
-
         preset = vbr?(bitrate) ? 'V' : 'b'
 
-        command << %(flac)
-        command << %(-cd)
-        command << %("#{file}")
-        command << %(|)
-        command << %(lame)
-        command << %(-#{preset})
-        command << cmd_bitrate(bitrate)
-        command << %(-)
-        command << %("#{File.basename(file).split('.')[0]}.mp3")
+        cmd = Array.new
+        cmd << %(flac)
+        cmd << %(-cd)
+        cmd << %("#{file}")
+        cmd << %(|)
+        cmd << %(lame)
+        cmd << %(-#{preset})
+        cmd << cmd_bitrate(bitrate)
+        cmd << %(-)
+        cmd << %("#{File.basename(file).split('.')[0]}.mp3")
+        cmd = cmd.join(' ')
 
-        to_exec = command.join(' ')
-
-        puts "Transcoding #{file}"
-        %x(#{to_exec})
+        execute_command(cmd)
       end
 
       def vbr?(bitrate)

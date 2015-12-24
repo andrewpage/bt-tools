@@ -4,6 +4,8 @@ require 'fileutils'
 module Tools
   module Actions
     class Create
+      include Tools::Execution
+
       attr_reader :files, :announce, :source, :output, :piece_size, :privacy
 
       # Create creates .torrent files for all files found in its manifest.
@@ -70,7 +72,7 @@ module Tools
         cmd << %(-o "#{outfile}")
         cmd = cmd.join(' ')
 
-        `#{command}`
+        execute_command(cmd)
       end
     end
   end
