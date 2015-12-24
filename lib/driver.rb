@@ -48,16 +48,18 @@ class ToolsDriver
     raise Tools::InvalidCommandException.new(command, AVAILABLE_COMMANDS) unless valid_command?
   end
 
+  # @return Command that was specified to this program
   def command
     options.command
   end
 
-  # Is this command supported?
+  # @return [Boolean] Is this command supported?
   def valid_command?
     AVAILABLE_COMMANDS.include?(command)
   end
 
   # CLI option parsing singleton
+  # @return [OptionParser] Object that can parse command line objects according to our specifications.
   def parser
     @parse ||= OptionParser.new do |opts|
       opts.banner = "Usage: ./tools [#{AVAILABLE_COMMANDS.join('|')}] <options>"

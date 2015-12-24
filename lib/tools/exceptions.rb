@@ -15,13 +15,14 @@ module Tools
     private
 
     # Concatenates the available commands together into a pretty string
+    # @return [String] All available commands separated by commas.
     def available_commands_string
       @available_commands.join(', ')
     end
   end
 
   class MissingKeysException < StandardError
-    # MissingKeyException indicates to the user that their configuration JSON is missing critical required keys.
+    # MissingKeysException indicates to the user that their configuration JSON is missing critical required keys.
     # @param required_keys [Array] Keys that they are missing.
     def initialize(required_keys)
       @required_keys = required_keys
@@ -34,6 +35,7 @@ module Tools
     private
 
     # Concatenates the required keys together into a pretty string
+    # @return [String] All required keys separated by commas.
     def required_keys_string
       @required_keys_string.map { |key| %('#{key}') }.join(', ')
     end
