@@ -1,6 +1,6 @@
 module Tools
   module Formats
-    class 320 < Format
+    class F320 < Format
       # Transcode to 320kbps CBR
       def transcode_command
         'Top Kek 320'
