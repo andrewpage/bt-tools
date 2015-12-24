@@ -5,27 +5,50 @@ require 'ostruct'
 require 'optionparser'
 
 class Tools
-    def initialize(args)
-      @args = args
-      @options = OpenStruct.new
+  DEFAULT_CONFIGURATION_PATH = File.join('config', 'configuration.json')
 
-      parse
-    end
+  attr_reader :options
 
-    def execute
-    end
+  def initialize(args)
+    @args = args
+    @options = OpenStruct.new(
+      configuration_path: DEFAULT_CONFIGURATION_PATH
+    )
 
-    private
+    parse
+  end
 
-    def parse
-      parser.parse!(@args)
+  def execute
+    puts options.command
+  end
 
-      command = @args.pop
-      command ? @command = command.to_sym : raise OptionParser::MissingArgument, 'command'
-    end
+  private
 
-    def parser
-      @parse ||= OptionParser.new do |opts|
+  def parse
+    parser.parse!(@args)
+
+    # Get the first argument, this is our command
+    command = @args.pop
+    raise OptionParser::MissingArgument, 'command' unless command
+
+    # Set the command if it's present
+    options.command = command.to_sym
+  end
+
+  def parser
+    @parse ||= OptionParser.new do |opts|
+      opts.banner = 'Usage: ./tools [command] <options>'
+
+      # Allow user to choose a different configuration file
+      opts.on('-c', '--config [path]', 'Change configuration file from default.') do |path|
+        options.configuration_path = path
+      end
+
+      # View program help
+      opts.on_tail('-h', '--help', 'See program help.') do
+        puts opts
+        exit
       end
     end
+  end
 end
