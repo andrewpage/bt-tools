@@ -12,14 +12,11 @@ module Tools
     # @param args [Array] Arguments, typically from ARGV.
     def initialize(args)
       @args = args
+      @options = OpenStruct.new
 
-      # Set options defaults
-      @options = OpenStruct.new(
-        configuration_path: DEFAULT_CONFIGURATION_PATH
-      )
-
+      set_default_options
       parse
-      validate!
+      validate
     end
 
     # Perform actions based on command & options
@@ -29,27 +26,36 @@ module Tools
 
     private
 
+    def set_default_options
+      options.configuration_path = DEFAULT_CONFIGURATION_PATH
+    end
+
     # Extract command + arguments from ARGV
     def parse
       # Parse all arguments first
-      parser.parse!(@args)
+      option_parser.parse!(arguments)
 
       # Get the first argument, this is our command
-      cmd = @args.pop
+      cmd = arguments.pop
       raise OptionParser::MissingArgument, 'command' unless cmd
 
       # Set the command if it's present
       options.command = cmd.to_sym
     end
 
-    # Ensure we have valid data
-    def validate!
-      raise Tools::InvalidCommandException.new(command, AVAILABLE_COMMANDS) unless valid_command?
+    # @return [Array] Command line arguments passed into this program.
+    def arguments
+      @args
     end
 
-    # @return Command that was specified to this program
+    # @return [Symbol] Command that was specified to this program
     def command
       options.command
+    end
+
+    # Ensure we have valid data
+    def validate
+      raise Tools::InvalidCommandException.new(command, AVAILABLE_COMMANDS) unless valid_command?
     end
 
     # @return [Boolean] Is this command supported?
@@ -59,8 +65,8 @@ module Tools
 
     # CLI option parsing singleton
     # @return [OptionParser] Object that can parse command line objects according to our specifications.
-    def parser
-      @parse ||= OptionParser.new do |opts|
+    def option_parser
+      @parser ||= OptionParser.new do |opts|
         opts.banner = "Usage: ./tools [#{AVAILABLE_COMMANDS.join('|')}] <options>"
 
         # Allow user to choose a different configuration file
