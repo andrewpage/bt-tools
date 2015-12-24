@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+require 'tools/driver'
+require 'ostruct'
+require 'optionparser'
+
+class Tools
+    def initialize(args)
+      @args = args
+      @options = OpenStruct.new
+
+      parse
+    end
+
+    def execute
+    end
+
+    private
+
+    def parse
+      parser.parse!(@args)
+
+      command = @args.pop
+      command ? @command = command.to_sym : raise OptionParser::MissingArgument, 'command'
+    end
+
+    def parser
+      @parse ||= OptionParser.new do |opts|
+      end
+    end
+end
