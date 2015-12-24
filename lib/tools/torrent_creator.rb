@@ -65,8 +65,8 @@ module Tools
   end
 end
 
-LIST_FILE = 'to_create'
-files = File.read(LIST_FILE).split("\n")
-
-creator = TorrentCreator.new(files, privacy: true)
-creator.execute
+# LIST_FILE = 'to_create'
+# files = File.read(LIST_FILE).split("\n")
+#
+# creator = TorrentCreator.new(files, privacy: true)
+# creator.execute
