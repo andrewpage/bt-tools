@@ -4,7 +4,7 @@ require 'fileutils'
 module Tools
   module Actions
     class Create
-      include Tools::Execution
+      include Execution
 
       attr_reader :files, :announce, :source, :output, :piece_size, :privacy
 
