@@ -1,4 +1,5 @@
 require 'json'
+require 'fileutils'
 
 module Tools
   module Actions
@@ -50,7 +51,7 @@ module Tools
 
       # Creates .torrent output directory if it does not yet exist.
       def create_output_directory
-        Dir.mkdir_p(output) unless File.exists?(output)
+        FileUtils.mkdir_p(output) unless File.exists?(output)
       end
 
       # Create the .torrent file

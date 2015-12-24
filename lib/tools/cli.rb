@@ -1,16 +1,14 @@
-require_relative 'tools/tools'
-
 require 'ostruct'
 require 'optionparser'
 
 module Tools
-  class Driver
+  class CLI
     DEFAULT_CONFIGURATION_PATH = File.join('config', 'configuration.json')
     AVAILABLE_COMMANDS = %i(create transcode)
 
     attr_reader :options
 
-    # ToolsDriver will parse all command line options
+    # CLI will parse all command line options
     # @param args [Array] Arguments, typically from ARGV.
     def initialize(args)
       @args = args

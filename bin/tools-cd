@@ -2,8 +2,8 @@
 
 require 'tools'
 
-# Pass command line options to Tools::Driver for parsing
-driver = Tools::Driver.new(ARGV)
+# Pass command line options to Tools::CLI for parsing
+cli = Tools::CLI.new(ARGV)
 
 # Run the program
-driver.execute
+cli.execute
