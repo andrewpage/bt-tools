@@ -2,4 +2,8 @@
 
 require_relative 'lib/driver'
 
-ToolsDriver.new(ARGV).execute
+# Pass command line options to ToolsDriver for parsing
+driver = ToolsDriver.new(ARGV)
+
+# Run the program
+driver.execute

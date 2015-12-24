@@ -9,7 +9,8 @@ class ToolsDriver
 
   attr_reader :options
 
-  # @param args: ARGV
+  # ToolsDriver will parse all command line options
+  # @param args Array of arguments, typically from ARGV.
   def initialize(args)
     @args = args
 
