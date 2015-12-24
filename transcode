@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 
-require 'optionparser'
 require 'fileutils'
 
 class Transcoder
@@ -51,9 +50,8 @@ class Transcoder
 
     to_exec = command.join(' ')
 
-    puts to_exec
-
-    system(to_exec)
+    puts "Transcoding #{file}"
+    %x(#{to_exec})
   end
 
   def vbr?(bitrate)
