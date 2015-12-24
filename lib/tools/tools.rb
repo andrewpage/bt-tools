@@ -1,6 +1,5 @@
-require_relative 'creator'
-require_relative 'transcoder'
-require_relative 'exceptions'
+require 'tools/actions/create'
+require 'tools/actions/transcode'
 
 require 'json'
 
@@ -14,13 +13,11 @@ module Tools
     # Get a Hash from the config JSON
     config = read_config(config_path, :create)
 
-
-
     # Get path for the manifest file
     manifest = config_path(config['manifest'])
 
     # Initialize .torrent Creator
-    creator = Creator.new(
+    creator = Actions::Create.new(
       manifest: manifest,
       announce: config['announceURL'],
       source: config['source'],

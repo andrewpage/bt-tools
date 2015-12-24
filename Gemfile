@@ -1,3 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'mktorrent'
+# Specify your gem's dependencies in tools-cd.gemspec
+gemspec

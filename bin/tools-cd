@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'tools'
+
+# Pass command line options to Tools::Driver for parsing
+driver = Tools::Driver.new(ARGV)
+
+# Run the program
+driver.execute
