@@ -37,8 +37,23 @@ module Tools
       # Format keys and their manifest files
       format_configuration = config['formats']
 
+      # Relativize all paths
+      relative_configuration = format_configuration.map do |key, manifest_path|
+        [key, relative_config_path(config_path, manifest_path)]
+      end.to_h
+
       # Format objects
-      formats = Tools::Formats::Format.create_from_configuration(format_configuration)
+      formats = Tools::Formats::Format.create_from_configuration(relative_configuration)
+
+      # Initialize file transcoder
+      transcoder = Actions::Transcode.new(
+        manifests: formats,
+        source: config['source'],
+        output: config['source']
+      )
+
+      # Transcode all formats
+      transcoder.execute
     end
 
     private
