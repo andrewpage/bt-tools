@@ -32,7 +32,9 @@ describe Tools::API do
 
     it 'should read configuration' do
       allow(Tools::Formats::Format).to receive(:create_from_configuration)
-      expect(@klass).to receive(:read_config).with('config_path', :transcode).and_return({})
+      allow_any_instance_of(Tools::Actions::Transcode).to receive(:execute)
+
+      expect(@klass).to receive(:read_config).with('config_path', :transcode).and_return({'formats'=>{}})
 
       @klass.transcode('config_path')
     end
