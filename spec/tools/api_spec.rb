@@ -30,6 +30,16 @@ describe Tools::API do
       }
     end
 
+    let(:expected_formats) do
+      {
+        'formats' => {
+          '320' => './path/to/transcode-320.json',
+          'V0' => './path/to/transcode-V0.json',
+          'V2' => './path/to/transcode-V2.json'
+        }
+      }
+    end
+
     it 'should read configuration' do
       allow(Tools::Formats::Format).to receive(:create_from_configuration)
       allow_any_instance_of(Tools::Actions::Transcode).to receive(:execute)
@@ -41,8 +51,9 @@ describe Tools::API do
 
     it 'should initialize format objects' do
       allow(@klass).to receive(:read_config).and_return(formats)
+      allow_any_instance_of(Tools::Actions::Transcode).to receive(:execute)
 
-      expect(Tools::Formats::Format).to receive(:create_from_configuration).with(formats['formats'])
+      expect(Tools::Formats::Format).to receive(:create_from_configuration).with(expected_formats['formats'])
 
       @klass.transcode('config_path')
     end
