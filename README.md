@@ -1,11 +1,11 @@
 # bt-tools
 
-[![RubyGems](https://img.shields.io/gem/v/bt-tools.svg?style=flat-square)](https://rubygems.org/gems/bt-tools)
-[![Build Status](https://img.shields.io/travis/andrewpage/bt-tools.svg?style=flat-square)](https://travis-ci.org/andrewpage/bt-tools) 
-[![Code Climate](https://img.shields.io/codeclimate/github/andrewpage/bt-tools.svg?style=flat-square)](https://codeclimate.com/github/andrewpage/bt-tools)
-[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/andrewpage/bt-tools.svg?style=flat-square)](https://codeclimate.com/github/andrewpage/bt-tools/coverage)
+[![RubyGems](https://img.shields.io/gem/v/bt-tools.svg)](https://rubygems.org/gems/bt-tools)
+[![Build Status](https://img.shields.io/travis/andrewpage/bt-tools.svg)](https://travis-ci.org/andrewpage/bt-tools) 
+[![Code Climate](https://img.shields.io/codeclimate/github/andrewpage/bt-tools.svg)](https://codeclimate.com/github/andrewpage/bt-tools)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/andrewpage/bt-tools.svg)](https://codeclimate.com/github/andrewpage/bt-tools/coverage)
 [![Issue Count](https://codeclimate.com/github/andrewpage/bt-tools/badges/issue_count.svg)](https://codeclimate.com/github/andrewpage/bt-tools)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.txt)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 
 Collection of tools for managing a seedbox.
 
