@@ -21,6 +21,10 @@ module Tools
     end
   end
 
+  class MissingConfigurationException < StandardError
+    # MissingConfigurationException indicates to the user that they are missing their configuration file.
+  end
+
   class MissingKeysException < StandardError
     # MissingKeysException indicates to the user that their configuration JSON is missing critical required keys.
     # @param required_keys [Array] Keys that they are missing.

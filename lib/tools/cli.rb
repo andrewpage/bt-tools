@@ -50,6 +50,7 @@ module Tools
     # Ensure we have valid data
     def validate
       raise Tools::InvalidCommandException.new(command, AVAILABLE_COMMANDS) unless valid_command?
+      raise Tools::MissingConfigurationException.new('You must specify a valid configuration file.') unless options.configuration_path
     end
 
     # @return [Boolean] Is this command supported?
