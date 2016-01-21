@@ -13,7 +13,6 @@ module Tools
       @args = args
       @options = OpenStruct.new
 
-      set_default_options
       parse
       validate
     end
