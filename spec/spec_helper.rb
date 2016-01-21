@@ -34,7 +34,7 @@ def mock_configuration
       "manifest" => "create.json",
       "source" => "/media/sdaa1/pageandrew/private/rtorrent/data",
       "output" => "/media/sdaa1/pageandrew/private/rtorrent/torrents",
-      "announceURL" => "http://tracker.what.cd:34000/iaqlcal9wjqzruu6oxjfn84xc38tdfam/announce",
+      "announceURL" => "http://tracker.what.cd:34000/TEST/announce",
       "private" => "true",
       "pieceSize" => 18
     },

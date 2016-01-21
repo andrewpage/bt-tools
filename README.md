@@ -1,4 +1,4 @@
-# Tools.CD
+# bt-tools
 
 [![Build Status](https://travis-ci.org/andrewpage/tools.cd.svg?branch=master)](https://travis-ci.org/andrewpage/tools.cd) [![Code Climate](https://codeclimate.com/github/andrewpage/tools.cd/badges/gpa.svg)](https://codeclimate.com/github/andrewpage/tools.cd) [![Test Coverage](https://codeclimate.com/github/andrewpage/tools.cd/badges/coverage.svg)](https://codeclimate.com/github/andrewpage/tools.cd/coverage)
 
@@ -9,7 +9,7 @@ Collection of tools for managing a seedbox.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tools-cd'
+gem 'bt-tools'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install tools-cd
+    $ gem install bt-tools
 
 ## Usage
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tools-cd.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/bt-tools.
 
 
 ## License
