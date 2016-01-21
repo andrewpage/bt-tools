@@ -1,6 +1,6 @@
 # bt-tools
 
-[![Build Status](https://travis-ci.org/andrewpage/tools.cd.svg?branch=master)](https://travis-ci.org/andrewpage/tools.cd) [![Code Climate](https://codeclimate.com/github/andrewpage/tools.cd/badges/gpa.svg)](https://codeclimate.com/github/andrewpage/tools.cd) [![Test Coverage](https://codeclimate.com/github/andrewpage/tools.cd/badges/coverage.svg)](https://codeclimate.com/github/andrewpage/tools.cd/coverage)
+[![Build Status](https://travis-ci.org/andrewpage/bt-tools.svg?branch=master)](https://travis-ci.org/andrewpage/bt-tools) [![Code Climate](https://codeclimate.com/github/andrewpage/tools.cd/badges/gpa.svg)](https://codeclimate.com/github/andrewpage/tools.cd) [![Test Coverage](https://codeclimate.com/github/andrewpage/tools.cd/badges/coverage.svg)](https://codeclimate.com/github/andrewpage/tools.cd/coverage)
 
 Collection of tools for managing a seedbox.
 
