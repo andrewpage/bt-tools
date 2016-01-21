@@ -1,8 +1,8 @@
 {
   "create": {
     "manifest": "create.json",
-    "source": "/media/sdaa1/pageandrew/private/rtorrent/data",
-    "output": "/media/sdaa1/pageandrew/private/rtorrent/torrents",
+    "source": "rtorrent/data",
+    "output": "rtorrent/torrents",
     "announceURL": "http://tracker.what.cd:34000/TEST/announce",
     "private": true,
     "pieceSize": 18
@@ -13,7 +13,7 @@
       "V0": "transcode-V0.json",
       "V2": "transcode-V2.json"
     },
-    "source": "/media/sdaa1/pageandrew/private/rtorrent/data",
-    "output": "/media/sdaa1/pageandrew/private/rtorrent/data"
+    "source": "rtorrent/data",
+    "output": "rtorrent/data"
   }
 }

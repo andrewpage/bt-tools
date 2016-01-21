@@ -3,7 +3,6 @@ require 'optionparser'
 
 module Tools
   class CLI
-    DEFAULT_CONFIGURATION_PATH = File.join('config', 'configuration.json')
     AVAILABLE_COMMANDS = %i(create transcode)
 
     attr_reader :options
@@ -25,10 +24,6 @@ module Tools
     end
 
     private
-
-    def set_default_options
-      options.configuration_path = DEFAULT_CONFIGURATION_PATH
-    end
 
     # Extract command + arguments from ARGV
     def parse
