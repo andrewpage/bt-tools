@@ -17,8 +17,6 @@ Gem::Specification.new do |spec|
   spec.executables   = %w(bt-tools)
   spec.require_paths = %w(lib)
 
-  spec.required_ruby_version = '2.2.3'
-
   spec.add_dependency 'activesupport', '~> 4.2.0'
 
   # General Development Dependencies
