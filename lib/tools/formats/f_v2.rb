@@ -3,7 +3,7 @@ module Tools
     class FV2 < Format
       # Transcode to 320kbps CBR
       def transcode_command
-        'Top Kek V2'
+        raise 'Implement transcode command.'
       end
 
       # Locate configuration under key 320
